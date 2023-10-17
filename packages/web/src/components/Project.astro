@@ -1,0 +1,163 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Icon from "./Icon.astro";
+import Link from "./Link.astro";
+interface Props {
+  entry: CollectionEntry<"projects">;
+}
+const { entry } = Astro.props;
+
+const { data } = entry;
+
+const options_ymd: Intl.DateTimeFormatOptions = {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+};
+const options_ym: Intl.DateTimeFormatOptions = {
+  year: "numeric",
+  month: "short",
+};
+const options_md: Intl.DateTimeFormatOptions = {
+  month: "short",
+  day: "numeric",
+};
+const options_d: Intl.DateTimeFormatOptions = { day: "numeric" };
+
+let options_begin: Intl.DateTimeFormatOptions = options_ymd;
+let options_end: Intl.DateTimeFormatOptions = options_ymd;
+
+if (data.end == null) {
+  options_begin = options_ym;
+} else if (data.end.getFullYear() !== data.begin.getFullYear()) {
+  options_begin = options_ym;
+  options_end = options_ym;
+} else if (data.end.getMonth() !== data.begin.getMonth()) {
+  options_end = options_md;
+} else if (data.end.getDate() !== data.begin.getDate()) {
+  options_end = options_d;
+}
+
+const techStackToUrl = new Map([
+  ["Next.js", "https://nextjs.org/"],
+  ["jotai", "https://jotai.org/"],
+  ["bun", "https://bun.sh/"],
+  ["Svelte", "https://svelte.dev/"],
+  ["Scss", "https://sass-lang.com/"],
+  ["Meilisearch", "https://www.meilisearch.com/"],
+  ["EdgeDB", "https://www.edgedb.com/"],
+  ["Docker", "https://www.docker.com/"],
+  ["Redis", "https://redis.io/"],
+  ["MQTT", "https://mqtt.org/"],
+  ["GraphQL", "https://graphql.org/"]
+]);
+
+const { Content } = await entry.render();
+---
+
+<article>
+  <div>
+    <h3 class="title">
+      {data.title}{
+        import.meta.env.DEV && entry.data["is-hidden"] && (
+          <span class="hidden">(비공개)</span>
+        )
+      }
+    </h3>
+    <aside>
+      <time
+        datetime={data.begin.toISOString()}
+        title={data.begin.toLocaleDateString("ko-KR", options_ymd)}
+        >{data.begin.toLocaleDateString("ko-KR", options_begin)}</time
+      >
+       ~
+      {
+        data.end != null && (
+          <time
+            datetime={data.end.toISOString()}
+            title={data.end.toLocaleDateString("ko-KR", options_ymd)}
+          >
+            {data.end.toLocaleDateString("ko-KR", options_end)}
+          </time>
+        )
+      }
+    </aside>
+    {data.team && <aside>{data.team}인</aside>}
+  </div>
+  {
+    (data.github || data.website) && (
+      <div>
+        {data.github && (
+          <Link url={data.github}>
+            <Icon as="github" slot="icon" />
+          </Link>
+        )}
+        {data.website && (
+          <Link url={data.website}>
+            <Icon as="link" slot="icon" />
+          </Link>
+        )}
+      </div>
+    )
+  }
+  {
+    data.stack != null && data.stack.length > 0 && (
+      <div class="tech-stack">
+        {data.stack.map((tech) => {
+          const url = techStackToUrl.get(
+            tech.replaceAll(/\(.+?\)/g, "").trim(),
+          );
+          return (
+            <a
+              href={url}
+              class="tech-stack__tech"
+              rel="noreferrer external"
+            >
+              {tech}
+            </a>
+          );
+        })}
+      </div>
+    )
+  }
+  <Content />
+</article>
+
+<style lang="scss">
+  article {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+  }
+  aside {
+    font-size: 0.75rem;
+    color: #63635e;
+  }
+  .hidden {
+    font-size: 0.75rem;
+    font-weight: initial;
+    color: #63635e;
+    margin-inline-start: 0.5ch;
+  }
+  .tech-stack {
+    display: flex;
+    gap: 0.5rem;
+    &__tech {
+      user-select: none;
+      color: #63635e;
+      background: #f1f0ef;
+      padding-inline: 0.5rem;
+      padding-block: 0.1rem;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      &[href]:hover {
+        color: #63635e;
+        background: #e9e8e6;
+      }
+      &[href]:active {
+        color: #63635e;
+        background: #e2e1de;
+      }
+    }
+  }
+</style>

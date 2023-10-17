@@ -1,0 +1,14 @@
+{
+  "name": "@resume/icon",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "bun run build.ts"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

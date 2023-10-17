@@ -1,0 +1,53 @@
+---
+import { getEntry } from "astro:content";
+import Icon from "./Icon.astro";
+import Link from "./Link.astro";
+
+const entry = await getEntry("profile", "tnraro");
+
+const { github, email, tel, website } = entry.data;
+
+const { Content } = await entry.render();
+---
+
+<address>
+  {
+    github && (
+      <Link url={github}>
+        <Icon as="github" slot="icon" />
+      </Link>
+    )
+  }
+  {
+    email && (
+      <Link url={`mailto:${email}`}>
+        <Icon as="mail" slot="icon" />
+      </Link>
+    )
+  }
+  {
+    tel && (
+      <Link url={`tel:${tel}`}>
+        <Icon as="smartphone" slot="icon" />
+      </Link>
+    )
+  }
+  {
+    website && (
+      <Link url={website}>
+        <Icon as="phone" slot="icon" />
+      </Link>
+    )
+  }
+</address>
+
+<div>
+  <Content />
+</div>
+
+<style>
+  div {
+    word-break: keep-all;
+    text-wrap: balance;
+  }
+</style>

@@ -1,0 +1,26 @@
+---
+interface Props {
+  url?: string;
+  text?: string;
+}
+let { url, text } = Astro.props;
+
+if (text == null) {
+  if (url != null) {
+    text = url.replaceAll(/^\w+:(\/\/)?|\/$/g, "");
+  }
+}
+---
+
+<div class="link">
+  <slot name="icon" />
+  <a class="link__a" href={url} rel="noreferrer external">{text}</a>
+</div>
+
+<style lang="scss">
+  .link {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Profile from "../components/Profile.astro";
+import Project from "../components/Project.astro";
+import RootLayout from "../layouts/RootLayout.astro";
+import "../styles/base.scss";
+
+const profile = await getEntry("profile", "tnraro");
+
+let projects = await getCollection("projects");
+
+if (!import.meta.env.DEV) {
+	projects = projects.filter((x) => !x.data["is-hidden"]);
+}
+
+projects.sort((a, b) => b.data.begin.getTime() - a.data.begin.getTime());
+projects.sort(
+	(a, b) =>
+		(b.data.end?.getTime() ?? Infinity) - (a.data.end?.getTime() ?? Infinity),
+);
+---
+
+<RootLayout title="resume">
+	<main>
+		<header>
+			<h1>{profile.data.title}</h1>
+			<Profile />
+		</header>
+
+		<section>
+			<h2>Projects</h2>
+			{projects.map((project) => <Project entry={project} />)}
+		</section>
+		<footer>이력서 하단</footer>
+	</main>
+</RootLayout>
+
+<style>
+	main {
+		max-width: 640px;
+		margin: 0 auto;
+		display: flex;
+		flex-flow: column;
+		gap: 2rem;
+	}
+	header {
+		display: flex;
+		flex-flow: column;
+		gap: 1rem;
+	}
+	section {
+		display: flex;
+		flex-flow: column;
+		gap: 2rem;
+	}
+</style>

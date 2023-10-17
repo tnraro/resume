@@ -1,0 +1,81 @@
+:where(html) {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+:where(body, h1, h2, h3, p, figure, blockquote, dl, dd) {
+  margin: 0;
+}
+
+:where(h1, h2, h3) {
+  font-weight: 900;
+  text-wrap: balance;
+  word-break: keep-all;
+}
+
+:where(h1, h2) {
+  font-size: 4rem;
+}
+
+:where(h3) {
+  font-size: 1.25rem;
+}
+
+:where(ul) {
+  margin: 0;
+  padding-inline-start: 2ch;
+}
+
+:where(li, p) {
+  line-height: 1.8;
+  word-break: keep-all;
+
+  &::marker {
+    color: #63635E;
+  }
+}
+
+:where(li::marker) {
+  color: #63635E;
+}
+
+:where(ul[role=list], ol[role=list]) {
+  list-style: none;
+}
+
+:where(body) {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color: #21201C;
+}
+
+:where(input, button, textarea, select) {
+  font: unset;
+  color: unset;
+}
+
+:where(a[href]) {
+  color: #0d74ce;
+
+  &:hover {
+    color: #0588f0;
+  }
+
+  &:active {
+    color: #0090ff;
+  }
+
+  &:visited {
+    color: #6550b9;
+
+    &:hover {
+      color: #654dc4;
+    }
+
+    &:active {
+      color: #6e56cf;
+    }
+  }
+}
