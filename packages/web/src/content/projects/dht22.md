@@ -4,6 +4,7 @@ github: https://github.com/tnraro/dht22monitor
 website: https://dev.tnraro.com/dht22/
 begin: 2023-05-22
 end: 2023-06-05
+is-hidden: true
 stack:
   - C
   - TypeScript
