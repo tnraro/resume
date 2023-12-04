@@ -6,6 +6,7 @@ end: 2023-08-28
 stack:
   - Svelte
   - Scss
+is-hidden: true
 ---
 - Picrew의 조합을 저장하는 UserScript
 - Svelte를 배우기 위한 토이 프로젝트로 시작
