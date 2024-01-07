@@ -16,6 +16,6 @@ stack:
 
 대상: 레이드, 랜덤 팀 매치 등 일시적인 협력 관계에서 개인정보 유출을 최소화하고 싶은 게이머
 
-- 디자인과 개발을 담당 ([Figma 링크](https://www.figma.com/file/3DEVGLyLa21yYCE7kU8Nr0/coops?node-id=12%3A806))
+- 디자인과 개발을 담당 (<a href="https://www.figma.com/file/3DEVGLyLa21yYCE7kU8Nr0/coops?node-id=12%3A806" rel="noreferrer external" target="_blank">Figma 링크</a>)
 - AWS EC2에서 2개월 간 운영. 이후 개인 서버로 이주
 - ICE 서버를 구축하지 않아, 사용자의 네트워크 환경에 따라 연결되지 않는 문제 존재
