@@ -18,6 +18,10 @@ projects.sort(
 	(a, b) =>
 		(b.data.end?.getTime() ?? Infinity) - (a.data.end?.getTime() ?? Infinity),
 );
+projects.sort(
+	(a, b) =>
+		(a.data.priority ?? Number.MAX_SAFE_INTEGER) - (b.data.priority ?? Number.MAX_SAFE_INTEGER)
+);
 ---
 
 <RootLayout title="resume">

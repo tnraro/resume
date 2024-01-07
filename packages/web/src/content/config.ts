@@ -12,6 +12,7 @@ export const collections = {
       end: z.date().optional(),
       "is-hidden": z.boolean().optional(),
       team: z.number().optional(),
+      priority: z.number().optional(),
     }),
   }),
   profile: defineCollection({
