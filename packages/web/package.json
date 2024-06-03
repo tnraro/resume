@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.3.0"
+    "astro": "^4.9.2"
   },
   "devDependencies": {
     "rehype-external-links": "^3.0.0",
-    "sass": "^1.69.3",
-    "sharp": "^0.32.6"
+    "sass": "^1.77.4",
+    "sharp": "^0.33.4"
   }
 }

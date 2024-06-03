@@ -1,6 +1,6 @@
 {
   "name": "resume",
-  "packageManager": "pnpm@8.9.2",
+  "packageManager": "pnpm@9.1.4",
   "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
