@@ -1,9 +1,7 @@
 ---
 title: Hojin Yang
 name: 양호진
-tel: 010-2623-2702
-email: deokji53@gmail.com
-# website: https://tnra.ro
+email: dahlia.jazzes0@icloud.com
 github: https://github.com/tnraro
 ---
 

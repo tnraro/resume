@@ -2,10 +2,8 @@
 title: COOPS
 begin: 2021-04-03
 end: 2021-06-15
-priority: 0
 team: 2
 github: https://github.com/hoshi-hitsuji/coops
-website: https://coops.tnraro.com/
 stack:
   - Next.js
   - Docker
