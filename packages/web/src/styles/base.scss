@@ -44,6 +44,11 @@
   list-style: none;
 }
 
+:where(code) {
+  font-family: Consolas, 'Courier New', monospace;
+  background: #f6f6f5;
+}
+
 :where(body) {
   min-height: 100vh;
   line-height: 1.5;
