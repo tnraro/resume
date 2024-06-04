@@ -5,6 +5,7 @@ end: 2023-02-02
 stack:
   - Next.js
   - EdgeDB
+is-hidden: true
 ---
 
 이벤트용 미니 게임 모음

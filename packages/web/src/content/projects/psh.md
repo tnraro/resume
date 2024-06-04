@@ -10,6 +10,7 @@ stack:
   - GraphQL
   - MySQL
   - MQTT
+is-hidden: true
 ---
 
 가족 중 IoT 기기의 소유자만이 제어할 수 있는 서비스

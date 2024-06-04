@@ -6,4 +6,4 @@ end: 2024-02-18
 priority: 1
 ---
 
-[두벌식 오토마타](https://github.com/tnraro/ime53/blob/main/automata.md)를 구현하였습니다.
+[두벌식 오토마타](https://github.com/tnraro/ime53/blob/main/automata.md)를 구현했습니다.
