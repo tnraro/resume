@@ -4,6 +4,7 @@ github: https://github.com/tnraro/ime53
 begin: 2024-02-17
 end: 2024-02-18
 priority: 2
+is-hidden: true
 ---
 
 [두벌식 오토마타](https://github.com/tnraro/ime53/blob/main/automata.md)를 구현했습니다.
