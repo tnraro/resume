@@ -6,7 +6,7 @@ export default defineConfig({
   base: "/resume",
   markdown: {
     rehypePlugins: [
-      [rehypeExternalLinks, { rel: ["noreferrer external"] }]
+      [rehypeExternalLinks, { rel: ["noreferrer external"], target: "_blank" }]
     ],
   }
 });
