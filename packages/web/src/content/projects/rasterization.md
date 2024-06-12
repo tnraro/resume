@@ -6,6 +6,7 @@ github: https://github.com/tnraro/graphics
 website: https://graphics-phi.vercel.app/
 stack:
   - JavaScript
+priority: 1
 ---
 
 3D를 픽셀(래스터 이미지)로 변환하는 Rasterizer를 JavaScript로 구현한 프로젝트입니다. 수학적 원리 학습과 구현을 목표로 했습니다. 질량 중심 좌표계로 삼각형에 색을 채우는 래스터라이저, 폴리곤을 동적으로 삼각형으로 자르기, 텍스처 적용, z-culling 등을 구현했습니다.
