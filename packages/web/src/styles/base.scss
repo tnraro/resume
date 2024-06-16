@@ -14,8 +14,14 @@
   word-break: keep-all;
 }
 
-:where(h1, h2) {
+:where(h1) {
   font-size: 4rem;
+  line-height: 4rem;
+}
+
+:where(h2) {
+  font-size: 3rem;
+  line-height: 3rem;
 }
 
 :where(h3) {
