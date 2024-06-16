@@ -4,11 +4,11 @@
   text-size-adjust: none;
 }
 
-:where(body, h1, h2, h3, p, figure, blockquote, dl, dd) {
+:where(body, h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
   margin: 0;
 }
 
-:where(h1, h2, h3) {
+:where(h1, h2, h3, h4) {
   font-weight: 900;
   text-wrap: balance;
   word-break: keep-all;
@@ -26,6 +26,11 @@
 
 :where(h3) {
   font-size: 1.25rem;
+}
+:where(h4) {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 2;
 }
 
 :where(ul) {

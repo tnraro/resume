@@ -107,22 +107,25 @@ const { Content } = await entry.render();
     }
     {
       data.stack != null && data.stack.length > 0 && (
-        <div class="tech-stack">
-          {data.stack.map((tech) => {
-            const url = techStackToUrl.get(
-              tech.replaceAll(/\(.+?\)/g, "").trim(),
-            );
-            return (
-              <a
-                href={url}
-                class="tech-stack__tech"
-                rel="noreferrer external"
-                target="_blank"
-              >
-                {tech}
-              </a>
-            );
-          })}
+        <div>
+          <h4>기술 스택</h4>
+          <div class="tech-stack">
+            {data.stack.map((tech) => {
+              const url = techStackToUrl.get(
+                tech.replaceAll(/\(.+?\)/g, "").trim(),
+              );
+              return (
+                <a
+                  href={url}
+                  class="tech-stack__tech"
+                  rel="noreferrer external"
+                  target="_blank"
+                >
+                  {tech}
+                </a>
+              );
+            })}
+          </div>
         </div>
       )
     }
@@ -176,6 +179,7 @@ const { Content } = await entry.render();
       padding-block: 0.1rem;
       border-radius: 0.25rem;
       text-decoration: none;
+      font-size: 0.8rem;
       &[href]:hover {
         color: #63635e;
         background: #e9e8e6;
