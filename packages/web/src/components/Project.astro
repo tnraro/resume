@@ -60,76 +60,83 @@ const { Content } = await entry.render();
 ---
 
 <article>
-  <div>
-    <h3 class="title">
-      {data.title}{
-        import.meta.env.DEV && entry.data["is-hidden"] && (
-          <span class="hidden">(비공개)</span>
-        )
-      }
-    </h3>
-    <aside>
-      <time
-        datetime={data.begin.toISOString()}
-        title={data.begin.toLocaleDateString("ko-KR", options_ymd)}
-        >{data.begin.toLocaleDateString("ko-KR", options_begin)}</time
-      >
-       ~
-      {
-        data.end != null && (
-          <time
-            datetime={data.end.toISOString()}
-            title={data.end.toLocaleDateString("ko-KR", options_ymd)}
-          >
-            {data.end.toLocaleDateString("ko-KR", options_end)}
-          </time>
-        )
-      }
-    </aside>
-    {data.team && <aside>{data.team}인</aside>}
-  </div>
-  {
-    (data.github || data.website) && (
-      <div>
-        {data.github && (
-          <Link url={data.github}>
-            <Icon as="github" slot="icon" />
-          </Link>
-        )}
-        {data.website && (
-          <Link url={data.website}>
-            <Icon as="link" slot="icon" />
-          </Link>
-        )}
-      </div>
-    )
-  }
-  {
-    data.stack != null && data.stack.length > 0 && (
-      <div class="tech-stack">
-        {data.stack.map((tech) => {
-          const url = techStackToUrl.get(
-            tech.replaceAll(/\(.+?\)/g, "").trim(),
-          );
-          return (
-            <a
-              href={url}
-              class="tech-stack__tech"
-              rel="noreferrer external"
-              target="_blank"
+  <div class="info">
+    <div>
+      <h3 class="title">
+        {data.title}{
+          import.meta.env.DEV && entry.data["is-hidden"] && (
+            <span class="hidden">(비공개)</span>
+          )
+        }
+      </h3>
+      <aside>
+        <time
+          datetime={data.begin.toISOString()}
+          title={data.begin.toLocaleDateString("ko-KR", options_ymd)}
+          >{data.begin.toLocaleDateString("ko-KR", options_begin)}</time
+        >
+        ~
+        {
+          data.end != null && (
+            <time
+              datetime={data.end.toISOString()}
+              title={data.end.toLocaleDateString("ko-KR", options_ymd)}
             >
-              {tech}
-            </a>
-          );
-        })}
-      </div>
-    )
-  }
+              {data.end.toLocaleDateString("ko-KR", options_end)}
+            </time>
+          )
+        }
+      </aside>
+      {data.team && <aside>{data.team}인</aside>}
+    </div>
+    {
+      (data.github || data.website) && (
+        <div>
+          {data.github && (
+            <Link url={data.github}>
+              <Icon as="github" slot="icon" />
+            </Link>
+          )}
+          {data.website && (
+            <Link url={data.website}>
+              <Icon as="link" slot="icon" />
+            </Link>
+          )}
+        </div>
+      )
+    }
+    {
+      data.stack != null && data.stack.length > 0 && (
+        <div class="tech-stack">
+          {data.stack.map((tech) => {
+            const url = techStackToUrl.get(
+              tech.replaceAll(/\(.+?\)/g, "").trim(),
+            );
+            return (
+              <a
+                href={url}
+                class="tech-stack__tech"
+                rel="noreferrer external"
+                target="_blank"
+              >
+                {tech}
+              </a>
+            );
+          })}
+        </div>
+      )
+    }
+  </div>
   <Content />
 </article>
 
 <style lang="scss">
   article {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+  }
+  .info {
     display: flex;
     flex-flow: column;
     gap: 1rem;
