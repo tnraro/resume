@@ -30,7 +30,7 @@ priority: 0
 	- 타입 세이프한 api 요청을 구현하고 싶었습니다. tRPC, ElysiaJS를 써봤지만 모두 SvelteKit과 매끄럽게 동작하지 않았습니다.
 	- `/routes/api/**/+server.ts`를 모두 읽고 클라이언트 코드를 생성하게 만들었습니다.
 	- 예시: `api().mail.post({ id }, body)` -> `POST /api/mail/[id]`
-	- 코드를 생성하여 래퍼 정확히 원하는 동작을 간단히 구현할 수 있었습니다.
+	- 코드를 생성하여 생산성을 끌어올릴 수 있었습니다.
 - 디자인 시스템 및 UI 컴포넌트
 	- 기본 요소를 스타일링하는 pico.css에 영향을 받았습니다. portal, modal 같은 간단한 컴포넌트는 직접 구현하고, 복잡한 상태를 가지는 컴포넌트는 Bits UI(Radix UI에 영향을 받은 Svelte 용 헤드리스 컴포넌트)를 사용했습니다.
 - Stylebook
